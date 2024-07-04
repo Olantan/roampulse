@@ -1,0 +1,14 @@
+import { fetch } from 'wix-fetch';
+
+export function searchFlights(origin, destination, date) {
+    const apiKey = 'YOUR_API_KEY'; // Replace with your flight search API key
+    const url = `https://api.example.com/flights?origin=${origin}&destination=${destination}&date=${date}&apiKey=${apiKey}`;
+
+    return fetch(url)
+        .then(response => response.json())
+        .then(data => data)
+        .catch(error => {
+            console.error('Error fetching flights:', error);
+            return [];
+        });
+}
